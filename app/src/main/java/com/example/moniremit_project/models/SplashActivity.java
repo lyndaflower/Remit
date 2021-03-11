@@ -9,7 +9,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.example.moniremit_project.MainActivity;
 import com.example.moniremit_project.R;
 
 public class SplashActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.moniremit_project;
+package com.example.moniremit_project.models;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import com.example.moniremit_project.R;
 import com.example.moniremit_project.adapter.SliderAdapter;
 import com.example.moniremit_project.models.SliderItems;
 

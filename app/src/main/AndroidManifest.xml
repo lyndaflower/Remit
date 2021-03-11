@@ -9,15 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Moniremit_project">
-        <activity android:name=".models.SplashActivity"
+        <activity android:name=".models.WelcomeActivity"></activity>
+        <activity
+            android:name=".models.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".models.MainActivity"></activity>
     </application>
 
 </manifest>
