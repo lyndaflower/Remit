@@ -2,12 +2,12 @@
     <string name="app_name">MONIREMIT</string>
     <string name="next">Next</string>
     <string name="discover">Discover</string>
-    <string name="shop">Shop</string>
+    <string name="transfer">Transfer</string>
     <string name="offers">Offers</string>
-    <string name="rewards">Rewards</string>
-    <string name="discover_text">Look for things around you</string>
-    <string name="shop_text"><![CDATA[Get the best deals & Coupons]]></string>
-    <string name="offers_text">Find great offers while you discover</string>
-    <string name="rewards_text"><![CDATA[Free recharge coupons & more]]></string>
+    <string name="join">Join us</string>
+    <string name="discover_text">Move money over and time</string>
+    <string name="transfer_text">Transformation power for financial inclusion</string>
+    <string name="offers_text">Stop overpaying when sending money.</string>
+    <string name="join_text">Join now to organize all your remittance</string>
     <string name="get_started">Get Started</string>
 </resources>

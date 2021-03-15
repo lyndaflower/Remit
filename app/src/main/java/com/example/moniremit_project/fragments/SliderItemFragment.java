@@ -32,7 +32,7 @@ public class SliderItemFragment extends Fragment {
     @StringRes
     private static final int[] PAGE_IMAGE =
             new int[] {
-                    R.drawable.ic_discover, R.drawable.ic_deals, R.drawable.ic_offers, R.drawable.ic_reward
+                    R.drawable.discover, R.drawable.transformative, R.drawable.offer, R.drawable.join
             };
     // prepare all background images arrays
     @StringRes
@@ -43,11 +43,7 @@ public class SliderItemFragment extends Fragment {
     public SliderItemFragment() {
         // Required empty public constructor
     }
-    /**
-     * Use this factory method to create a new instance of
-     *
-     * @return A new instance of fragment SliderItemFragment.
-     */
+
     public static SliderItemFragment newInstance(int position) {
         SliderItemFragment fragment = new SliderItemFragment();
         Bundle args = new Bundle();
