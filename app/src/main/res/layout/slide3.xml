@@ -15,8 +15,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="@dimen/img_width_height"
-                android:layout_height="@dimen/img_width_height"
+                android:layout_width="@dimen/img_width"
+                android:layout_height="@dimen/img_height"
                 android:src="@drawable/financial" />
 
             <TextView

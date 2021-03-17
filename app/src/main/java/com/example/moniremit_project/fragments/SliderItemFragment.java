@@ -21,18 +21,18 @@ public class SliderItemFragment extends Fragment {
     // prepare all title ids arrays
     @StringRes
     private static final int[] PAGE_TITLES =
-            new int[] { R.string.discover, R.string.shop, R.string.offers, R.string.rewards };
+            new int[] { R.string.discover, R.string.transfer, R.string.offers, R.string.join };
     // prepare all subtitle ids arrays
     @StringRes
     private static final int[] PAGE_TEXT =
             new int[] {
-                    R.string.discover_text, R.string.shop_text, R.string.offers_text, R.string.rewards_text
+                    R.string.discover_text, R.string.transfer_text, R.string.offers_text, R.string.join_text
             };
     // prepare all subtitle images arrays
     @StringRes
     private static final int[] PAGE_IMAGE =
             new int[] {
-                    R.drawable.discover, R.drawable.transformative, R.drawable.offer, R.drawable.join
+                    R.drawable.discove, R.drawable.financial, R.drawable.offer, R.drawable.group
             };
     // prepare all background images arrays
     @StringRes

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MONIREMIT</string>
+    <!--    splash screen welcome page-->
     <string name="next">Next</string>
     <string name="discover">Discover</string>
     <string name="transfer">Transfer</string>
@@ -9,5 +10,39 @@
     <string name="transfer_text">Transformation power for financial inclusion</string>
     <string name="offers_text">Stop overpaying when sending money.</string>
     <string name="join_text">Join now to organize all your remittance</string>
-    <string name="get_started">Get Started</string>
+    <string name="start">Get Started</string>
+    <string name="register">Register</string>
+    <!--    registration and log-in-->
+
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="profile">Personal Information</string>
+    <string name="nationality">Nationality</string>
+    <string name="phone_number">Cell phone number</string>
+    <string name="alternative_cellPhone_number">Alternative cell phone number</string>
+    <string name="passport_photo">Upload your passport photo</string>
+    <string name="identification_type">Select identification type</string>
+    <string name="RDAID_number">RSAID number</string>
+    <string name="gender">Gender</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="country_of_your_birth">the country of your birth</string>
+    <string name="photo_ID">Please provide a photo of original ID document</string>
+    <string name="address_details">Address details</string>
+    <string name="province">Province</string>
+    <string name="city">City</string>
+    <string name="street_no">Street No</string>
+    <string name="street_name">Street name</string>
+    <string name="postal_code">Postal code</string>
+    <string name="photo_residence">Please provide a proof photo of a residence</string>
+    <string name="terms_conditions">Terms and conditions</string>
+    <string name="signature">Complete the registration with your signature by signing the box below using your index finger</string>
+    <string name="verification_code">Type verification code here</string>
+    <string name="username">Username</string>
+    <string name="pin">Enter your PIN</string>
+    <string name="sign_up">Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="registration">click here to register</string>
+    <string name="comfirmation_message">Your request has been submitted successfully.You will receive an SMS confirming your login PIN shortly</string>
 </resources>

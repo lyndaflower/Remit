@@ -12,7 +12,7 @@ public class PrefAdapter {
     int PRIVATE_MODE = 0;
 
     // Shared preferences file name
-    private static final String PREF_NAME = "androidhive-welcome";
+    private static final String PREF_NAME = "moniremit";
 
     private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
 
@@ -28,7 +28,7 @@ public class PrefAdapter {
     }
 
     public boolean isFirstTimeLaunch() {
-        return pref.getBoolean(IS_FIRST_TIME_LAUNCH, true);
+        return pref.getBoolean(IS_FIRST_TIME_LAUNCH, false);
     }
 
 }

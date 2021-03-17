@@ -64,7 +64,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
             @Override public void onPageSelected(int position) {
                 if (position == adapter.getCount() - 1) {
-                    button.setText(R.string.get_started);
+                    button.setText(R.string.start);
                 } else {
                     button.setText(R.string.next);
                 }
