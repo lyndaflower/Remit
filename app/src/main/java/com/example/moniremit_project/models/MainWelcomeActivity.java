@@ -22,25 +22,25 @@ import android.widget.TextView;
 import com.example.moniremit_project.R;
 import com.example.moniremit_project.adapter.PrefAdapter;
 
-public class MainWelcomeActivity extends AppCompatActivity {
+public class MainWelcomeActivity extends AppCompatActivity{
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
     private TextView btnNext;
-    private PrefAdapter prefManager;
+//    private PrefAdapter prefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Checking for first time launch - before calling setContentView()
-        prefManager = new PrefAdapter(this);
-        if (!prefManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
-            finish();
-        }
+//        prefManager = new PrefAdapter(this);
+//        if (!prefManager.isFirstTimeLaunch()) {
+//            launchHomeScreen();
+//            finish();
+//        }
 
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
@@ -53,6 +53,8 @@ public class MainWelcomeActivity extends AppCompatActivity {
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
 //        btnSkip = (Button) findViewById(R.id.btn_skip);
         btnNext = (TextView) findViewById(R.id.btn_next);
+//        register=(Button)findViewById(R.id.text_register);
+
 
 
         // layouts of all welcome sliders
@@ -111,8 +113,8 @@ public class MainWelcomeActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(MainWelcomeActivity.this, RegistrationActivity.class));
+//        prefManager.setFirstTimeLaunch(false);
+        startActivity(new Intent(MainWelcomeActivity.this, LoginActivity.class));
         finish();
     }
 

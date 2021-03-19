@@ -42,6 +42,7 @@
     <string name="pin">Enter your PIN</string>
     <string name="sign_up">Sign up</string>
     <string name="log_in">Log in</string>
+    <string name="reset_pin">Reset pin</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="registration">click here to register</string>
     <string name="comfirmation_message">Your request has been submitted successfully.You will receive an SMS confirming your login PIN shortly</string>

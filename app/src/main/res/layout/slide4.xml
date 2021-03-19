@@ -38,23 +38,23 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/slide_desc"
                 android:gravity="center_horizontal" />
-            <Button
-                android:id="@+id/text_register"
-                android:layout_width="300dp"
-                android:layout_marginTop="30dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/transparent_bg_bordered_button"
-                android:text="@string/register"/>
+<!--            <Button-->
+<!--                android:id="@+id/text_register"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/transparent_bg_bordered_button"-->
+<!--                android:text="@string/register"/>-->
 
-            <TextView
-                android:id="@+id/text_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Already have an account!LOG IN"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif"/>
+<!--            <TextView-->
+<!--                android:id="@+id/text_login"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Already have an account!LOG IN"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:fontFamily="sans-serif"/>-->
 
         </LinearLayout>
 

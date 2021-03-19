@@ -6,68 +6,68 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-        <EditText
-        android:id="@+id/editName"
+    <EditText
+        android:id="@+id/identification_type"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:padding="9dp"
-        android:hint="Name"
+        android:hint="@string/province"
         android:background="@drawable/edit_text_background"
-        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawableLeft="@drawable/ic_baseline_add_location_24"
         android:textColorHint="#E2535353"
         android:textColor="#E2535353"
         android:drawablePadding="6dp"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editEmail"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/edit_RDAID_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13" />
 
     <EditText
-        android:id="@+id/editEmail"
+        android:id="@+id/edit_RDAID_number"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
+        android:hint="@string/city"
         android:padding="9dp"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawableLeft="@drawable/ic_baseline_location_city_24"
         android:drawablePadding="6dp"
         android:textColor="#E2535353"
         android:textColorHint="#E2535353"
         android:layout_margin="10dp"
         android:background="@drawable/edit_text_background"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editPass"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/birth_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName" />
+        app:layout_constraintTop_toBottomOf="@+id/identification_type" />
 
     <EditText
-        android:id="@+id/editPass"
+        android:id="@+id/birth_date"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
         android:padding="9dp"
         android:textColorHint="#E2535353"
-        android:drawableLeft="@drawable/ic_baseline_phone_24"
+        android:drawableLeft="@drawable/ic_baseline_streetview_24"
         android:drawablePadding="6dp"
         android:textColor="#E2535353"
         android:background="@drawable/edit_text_background"
-        android:hint="@string/phone_number"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/upload_phto"
+        android:hint="@string/street_name"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/photo_ID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_RDAID_number" />
     <TextView
-        android:id="@+id/upload_phto"
+        android:id="@+id/photo_ID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/passport_photo"
+        android:text="@string/photo_residence"
         android:layout_margin="15dp"
         android:textColor="#E2535353"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/editPass"
+        app:layout_constraintTop_toBottomOf="@+id/birth_date"
         android:gravity="center_horizontal" />
 
     <ImageView
@@ -76,7 +76,7 @@
         android:src="@drawable/ic_baseline_photo_camera_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upload_phto" />
+        app:layout_constraintTop_toBottomOf="@+id/photo_ID" />
 
     <TextView
         android:id="@+id/textView"
