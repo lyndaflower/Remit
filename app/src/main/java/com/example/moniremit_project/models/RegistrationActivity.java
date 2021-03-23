@@ -35,52 +35,24 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
-//        skip = (Button) findViewById(R.id.btn_skip);
         next = (Button) findViewById(R.id.btn_next);
         layouts = new int[]{R.layout.page1, R.layout.page2, R.layout.page3,R.layout.page4};
-//        addBottomDots(0);
-//        changeStatusBarColor();
         viewPagerAdapter = new ViewPagerAdapter();
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(viewListener);
-
-        //For the next and previous buttons
-//        skip.setOnClickListener(view -> {
-//            Intent i = new Intent(MainActivity.this, Home.class);
-//            startActivity(i);
-//            finish();
-//        });
 
         next.setOnClickListener(view -> {
             int current = getItem(+1);
             if (current < layouts.length) {
                 viewPager.setCurrentItem(current);
             } else {
-                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                Intent intent = new Intent(RegistrationActivity.this, Verification_codeActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
     }
-
-    //Giving the dots functionality
-//    private void addBottomDots(int position) {
-//
-//        dots = new TextView[layouts.length];
-//        int[] colorActive = getResources().getIntArray(R.array.dot_active);
-//        int[] colorInactive = getResources().getIntArray(R.array.dot_inactive);
-//        dotsLayout.removeAllViews();
-//        for (int i = 0; i < dots.length; i++) {
-//            dots[i] = new TextView(this);
-//            dots[i].setText(Html.fromHtml("&#8226;"));
-//            dots[i].setTextSize(35);
-//            dots[i].setTextColor(colorInactive[position]);
-//            dotsLayout.addView(dots[i]);
-//        }
-//        if (dots.length > 0)
-//            dots[position].setTextColor(colorActive[position]);
-//    }
 
     private int getItem(int i) {
         return viewPager.getCurrentItem() + i;
@@ -96,7 +68,6 @@ public class RegistrationActivity extends AppCompatActivity {
         @Override
         public void onPageSelected(int position) {
 
-//            addBottomDots(position);
             if (position == layouts.length - 1) {
                 next.setText("Register");
 //                skip.setVisibility(View.GONE);
