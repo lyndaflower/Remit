@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.moniremit_project" >
+    package="com.example.moniremit_project">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,38 +10,39 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Moniremit_project" >
+        android:theme="@style/Theme.Moniremit_project">
         <activity
             android:name=".models.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.Moniremit_project.NoActionBar" >
+            android:theme="@style/Theme.Moniremit_project.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".models.TopUpActivity" />
+
         <activity android:name=".models.Verification_codeActivity" />
+
         <activity android:name=".models.Reset_pinActivity" />
+
         <activity
             android:name=".models.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
             android:name=".models.RegistrationActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".models.MainWelcomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity android:name=".models.WelcomeActivity" />
+
         <activity
             android:name=".models.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
     </application>
 

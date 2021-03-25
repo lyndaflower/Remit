@@ -48,6 +48,7 @@
     <string name="registration">click here to register</string>
     <string name="verification_code_text">Verification code</string>
     <string name="comfirmation_message">Your request has been submitted successfully.You will receive an SMS confirming your login PIN shortly</string>
+
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -59,4 +60,5 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
 </resources>
