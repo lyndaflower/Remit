@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MONIREMIT</string>
+    <string name="app_name">Moniremit</string>
     <!--    splash screen welcome page-->
     <string name="next">Next</string>
     <string name="discover">Discover</string>
@@ -60,5 +60,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+<!--    top-up process-->
+
+    <string name="bank_pay">Which country is your bank account located at</string>
+    <string name="bank_location">Enter bank location</string>
+    <string name="select_bank">Select bank you want to pay to</string>
+    <string name="checkbox_bank_of_kigali">Bank of kigali</string>
+    <string name="checkbox_equity">Equity bank</string>
+    <string name="checkbox_ecobank">Ecobank</string>
+    <string name="checkbox_access_bank">Access bank</string>
+    <string name="checkbox_kcb">Kenya Commercial Bank(KCB)</string>
+    <string name="continue_btn"></string>
 
 </resources>

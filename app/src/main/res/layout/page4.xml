@@ -5,32 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+
     <View
         android:id="@+id/header_view"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@drawable/header_bg"/>
+        android:background="@drawable/header_bg" />
+
     <LinearLayout
-        android:layout_marginTop="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header_view"
+        android:layout_marginTop="0dp"
         android:background="@color/white"
         android:orientation="vertical">
-        <include layout="@layout/page4_form"/>
+
+        <include layout="@layout/page4_form" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="bottom">
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@drawable/bottom_bg"/>
+            android:background="@drawable/bottom_bg" />
     </LinearLayout>
 
 

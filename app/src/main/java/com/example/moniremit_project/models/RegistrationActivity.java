@@ -1,10 +1,12 @@
 package com.example.moniremit_project.models;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -18,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.moniremit_project.R;
 
@@ -46,9 +49,27 @@ public class RegistrationActivity extends AppCompatActivity {
             if (current < layouts.length) {
                 viewPager.setCurrentItem(current);
             } else {
-                Intent intent = new Intent(RegistrationActivity.this, Verification_codeActivity.class);
-                startActivity(intent);
-                finish();
+                AlertDialog.Builder dialog=new AlertDialog.Builder(this);
+                dialog.setMessage("Your request has been submitted successfully,You will receive an SMS confirming your login PIN shortly.");
+                dialog.setTitle("Thank you!");
+                dialog.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                Toast.makeText(getApplicationContext(),"Thank you for registering",Toast.LENGTH_LONG).show();
+                                Intent reset= new Intent(RegistrationActivity.this,Verification_codeActivity.class);
+                                startActivity(reset);
+                                finish();
+                            }
+                        });
+                dialog.setNegativeButton("cancel",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(),"Request cancelled",Toast.LENGTH_LONG).show();
+                    }
+                });
+                AlertDialog alertDialog=dialog.create();
+                alertDialog.show();
             }
         });
 

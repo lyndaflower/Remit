@@ -6,43 +6,45 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/moni"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/moni"
         android:supportsRtl="true"
         android:theme="@style/Theme.Moniremit_project">
+        <activity android:name=".topUp.StatementsActivity"></activity>
+        <activity android:name=".models.SendMoneyActivity" />
+        <activity android:name=".models.AboutActivity" />
+        <activity android:name=".models.NotificationActivity" />
         <activity
             android:name=".models.MainActivity"
-            android:theme="@style/Theme.Moniremit_project.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".models.TopUpActivity" />
-
-        <activity android:name=".models.Verification_codeActivity" />
-
-        <activity android:name=".models.Reset_pinActivity" />
-
+            android:theme="@style/Theme.Moniremit_project.NoActionBar"></activity>
+        <activity
+            android:name=".topUp.TopUpActivity"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+        <activity
+            android:name=".models.Verification_codeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".models.Reset_pinActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".models.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity
             android:name=".models.RegistrationActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".models.MainWelcomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity android:name=".models.WelcomeActivity" />
-
         <activity
             android:name=".models.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:background="@color/white"
@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="@string/verification_code_text"
+                android:text="@string/reset_text"
                 android:textAlignment="center"
                 android:textColor="@color/primaryColor"
                 android:textSize="25sp"
@@ -49,15 +49,15 @@
                 android:textColor="#E2535353"
                 android:textColorHint="#E2535353"
                 android:padding="9dp"
-            />
+                />
 
             <Button
                 android:id="@+id/reset_btn"
-                android:layout_width="200sp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50sp"
                 android:background="@drawable/button_background"
-                android:text="Re-Send" />
+                android:text="Reset" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

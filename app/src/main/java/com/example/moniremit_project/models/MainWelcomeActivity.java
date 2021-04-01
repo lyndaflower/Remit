@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.example.moniremit_project.R;
 import com.example.moniremit_project.adapter.PrefAdapter;
 
-public class MainWelcomeActivity extends AppCompatActivity{
+public class MainWelcomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private LinearLayout dotsLayout;
@@ -54,7 +54,6 @@ public class MainWelcomeActivity extends AppCompatActivity{
 //        btnSkip = (Button) findViewById(R.id.btn_skip);
         btnNext = (TextView) findViewById(R.id.btn_next);
 //        register=(Button)findViewById(R.id.text_register);
-
 
 
         // layouts of all welcome sliders

@@ -5,265 +5,366 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start"
+    android:background="#f2f2f2"
     tools:context=".models.MainActivity">
 
-        <com.google.android.material.navigation.NavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/nav_view"
-            app:headerLayout="@layout/header"
-            app:menu="@menu/main_menu"
-            android:layout_gravity="start"/>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu" />
 
-        <ScrollView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FFFFFF">
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/primaryColorLight"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigationIcon="@drawable/mennu"
+                app:titleTextColor="@color/white" />
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textView"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="16dp"-->
+            <!--                    android:layout_marginLeft="16dp"-->
+            <!--                    android:layout_marginTop="24dp"-->
+            <!--                    android:text="@string/app_name"-->
+            <!--                    android:textSize="30sp"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/imageView"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textView2"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="16dp"-->
+            <!--                    android:layout_marginLeft="14dp"-->
+            <!--                    android:text="Start a new Journey"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/imageView"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:srcCompat="@drawable/moniremi" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="195dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/top_up"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:minHeight="?attr/actionBarSize"
-                    android:theme="?attr/actionBarTheme"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:navigationIcon="@drawable/ic_baseline_menu_24" />
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/textView"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/bus"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Top Up"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/view2"
+                            android:layout_width="125dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/textView3"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="6dp"
+                            android:background="#ededed" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view2"
+                            android:layout_centerHorizontal="true"
+                            android:padding="5dp"
+                            android:text="Credit your e-wallet" />
+
+
+                        <ImageView
+                            android:id="@+id/bus"
+                            android:layout_width="104dp"
+                            android:layout_height="74dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp"
+                            android:src="@drawable/transfer" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/send_money"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="24dp"
-                    android:text="Traveling"
-                    android:textSize="30sp"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-                <TextView
-                    android:id="@+id/textView2"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/imageView3"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Send money"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/view4"
+                            android:layout_width="125dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/textView4"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="6dp"
+                            android:background="#ededed" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view4"
+                            android:layout_centerHorizontal="true"
+                            android:padding="5dp"
+                            android:text="Transfer money" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="74dp"
+                            android:layout_height="74dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp"
+                            app:srcCompat="@drawable/send" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="0dp"
+                android:layout_height="195dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/statements"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:text="Start a new Journey"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
-                <ImageView
-                    android:id="@+id/imageView"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/bus1"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Statements"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/view6"
+                            android:layout_width="125dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/textView6"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="6dp"
+                            android:background="#ededed" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view6"
+                            android:layout_centerHorizontal="true"
+                            android:padding="5dp"
+                            android:text="View your e-wallet" />
+
+                        <ImageView
+                            android:id="@+id/bus1"
+                            android:layout_width="104dp"
+                            android:layout_height="74dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp"
+                            app:srcCompat="@drawable/statements" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/quotation"
                     android:layout_width="0dp"
-                    android:layout_height="160dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                    app:srcCompat="@drawable/logo" />
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="175dp"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/textView3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/bus"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
-                                android:text="Walking"
-                                android:textSize="24sp" />
-                            <ImageView
-                                android:id="@+id/bus"
-                                android:layout_width="75dp"
-                                android:layout_height="75dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                app:srcCompat="@drawable/image3" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/textView4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/imageView3"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
-                                android:text="Boating"
-                                android:textSize="24sp"/>
-                            <ImageView
-                                android:id="@+id/imageView3"
-                                android:layout_width="75dp"
-                                android:layout_height="75dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                app:srcCompat="@drawable/image2" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1">
 
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="0dp"
-                    android:layout_height="175dp"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/textView6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/bus1"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
-                                android:text="Bus"
-                                android:textSize="24sp" />
-                            <ImageView
-                                android:id="@+id/bus1"
-                                android:layout_width="75dp"
-                                android:layout_height="75dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                app:srcCompat="@drawable/image4" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/train"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:text="Quotation"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/textView7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/train"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
-                                android:text="Train"
-                                android:textSize="24sp" />
-                            <ImageView
-                                android:id="@+id/train"
-                                android:layout_width="75dp"
-                                android:layout_height="75dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                app:srcCompat="@drawable/offer" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
+                        <View
+                            android:id="@+id/view7"
+                            android:layout_width="125dp"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/textView7"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="6dp"
+                            android:background="#ededed" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="175dp"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view7"
+                            android:layout_centerHorizontal="true"
+                            android:padding="5dp"
+                            android:text="Check requirements" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/textView8"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/cycle"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
-                                android:text="Bus"
-                                android:textSize="24sp" />
-                            <ImageView
-                                android:id="@+id/cycle"
-                                android:layout_width="75dp"
-                                android:layout_height="75dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                app:srcCompat="@drawable/financial" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
+                        <ImageView
+                            android:id="@+id/train"
+                            android:layout_width="74dp"
+                            android:layout_height="74dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:padding="10dp"
+                            app:srcCompat="@drawable/quotation" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/textView9"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/airplane"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
-                                android:text="Train"
-                                android:textSize="24sp" />
-                            <ImageView
-                                android:id="@+id/airplane"
-                                android:layout_width="75dp"
-                                android:layout_height="75dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                app:srcCompat="@drawable/technology" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="175dp"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintHorizontal_bias="0.0"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">-->
 
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+            <!--                    <androidx.cardview.widget.CardView-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:layout_weight="1">-->
+            <!--                        <RelativeLayout-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="match_parent">-->
+            <!--                            <TextView-->
+            <!--                                android:id="@+id/textView8"-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:layout_below="@id/cycle"-->
+            <!--                                android:layout_centerHorizontal="true"-->
+            <!--                                android:layout_marginTop="10dp"-->
+            <!--                                android:text="Bus"-->
+            <!--                                android:textSize="24sp" />-->
+
+            <!--                            <ImageView-->
+            <!--                                android:id="@+id/cycle"-->
+            <!--                                android:layout_width="75dp"-->
+            <!--                                android:layout_height="75dp"-->
+            <!--                                android:layout_centerHorizontal="true"-->
+            <!--                                android:layout_marginTop="15dp"-->
+            <!--                                app:srcCompat="@drawable/financial" />-->
+            <!--                        </RelativeLayout>-->
+            <!--                    </androidx.cardview.widget.CardView>-->
+
+            <!--                    <androidx.cardview.widget.CardView-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="match_parent"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:layout_weight="1">-->
+            <!--                        <RelativeLayout-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="match_parent">-->
+            <!--                            <TextView-->
+            <!--                                android:id="@+id/textView9"-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:layout_below="@id/airplane"-->
+            <!--                                android:layout_centerHorizontal="true"-->
+            <!--                                android:layout_marginTop="10dp"-->
+            <!--                                android:text="Train"-->
+            <!--                                android:textSize="24sp" />-->
+            <!--                            <ImageView-->
+            <!--                                android:id="@+id/airplane"-->
+            <!--                                android:layout_width="75dp"-->
+            <!--                                android:layout_height="75dp"-->
+            <!--                                android:layout_centerHorizontal="true"-->
+            <!--                                android:layout_marginTop="15dp"-->
+            <!--                                app:srcCompat="@drawable/technology" />-->
+            <!--                        </RelativeLayout>-->
+            <!--                    </androidx.cardview.widget.CardView>-->
+
+            <!--                </LinearLayout>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

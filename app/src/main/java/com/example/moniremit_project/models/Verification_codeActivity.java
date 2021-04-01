@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,13 +33,16 @@ public class Verification_codeActivity extends AppCompatActivity implements View
     }
     private void alertDialog() {
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
-        dialog.setMessage("Your request has been submitted successfully,You will receive an SMS confirming your login PIN shortly.");
-        dialog.setTitle("Reset moniremit PIN");
+        dialog.setMessage("Request sent successfully");
+        dialog.setTitle("Thank you again");
         dialog.setPositiveButton("OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,
                                         int which) {
                         Toast.makeText(getApplicationContext(),"Request sent successfully",Toast.LENGTH_LONG).show();
+                        Intent reset= new Intent(Verification_codeActivity.this,LoginActivity.class);
+                        startActivity(reset);
+                        finish();
                     }
                 });
         dialog.setNegativeButton("cancel",new DialogInterface.OnClickListener() {

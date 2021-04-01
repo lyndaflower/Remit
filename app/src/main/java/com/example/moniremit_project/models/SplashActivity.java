@@ -14,25 +14,25 @@ import com.example.moniremit_project.R;
 public class SplashActivity extends AppCompatActivity {
 
     private ImageView logo;
-    private static int splashTimeout=5000;
+    private int splashTimeout = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        logo=(ImageView)findViewById(R.id.logo);
+        logo = (ImageView) findViewById(R.id.logo);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                Intent i = new Intent(SplashActivity.this, MainWelcomeActivity.class);
                 startActivity(i);
                 finish();
             }
-        },splashTimeout);
+        }, splashTimeout);
 
-        Animation myanim = AnimationUtils.loadAnimation(this,R.anim.splash_anim);
+        Animation myanim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         logo.startAnimation(myanim);
     }
 }
