@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".models.MainWelcomeActivity">
+    tools:context=".topUp.RetrieveDetailsActivity">
 
-    <com.daimajia.slider.library.SliderLayout
-        android:id="@+id/slider"
-        android:layout_width="fill_parent"
-        android:layout_height="300dp" />
-
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Names"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent" />
 </RelativeLayout>

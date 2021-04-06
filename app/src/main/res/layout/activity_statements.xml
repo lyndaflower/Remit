@@ -6,4 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".topUp.StatementsActivity">
 
+    <EditText
+        android:id="@+id/locationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter location"
+        android:textColor="@color/accentColor"
+        android:textColorHint="@color/accentColor"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/findRestaurantsButton"/>
+    <Button
+        android:id="@+id/findRestaurantsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/locationEditText"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

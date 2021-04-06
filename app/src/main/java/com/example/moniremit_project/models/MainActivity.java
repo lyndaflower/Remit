@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.moniremit_project.R;
+import com.example.moniremit_project.topUp.CardActivity;
 import com.example.moniremit_project.topUp.StatementsActivity;
 import com.example.moniremit_project.topUp.TopUpActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case 0:
                         if (isChecked) {
                             Toast.makeText(MainActivity.this, "Clicked on Credit/Debit Card", Toast.LENGTH_LONG).show();
-                            Intent card = new Intent(MainActivity.this, StatementsActivity.class);
+                            Intent card = new Intent(MainActivity.this, CardActivity.class);
                             startActivity(card);
                             finish();
                         }

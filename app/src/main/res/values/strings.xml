@@ -61,7 +61,7 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
-<!--    top-up process-->
+    <!--    top-up process-->
 
     <string name="bank_pay">Which country is your bank account located at</string>
     <string name="bank_location">Enter bank location</string>

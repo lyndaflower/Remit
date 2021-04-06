@@ -11,19 +11,27 @@
         android:roundIcon="@mipmap/moni"
         android:supportsRtl="true"
         android:theme="@style/Theme.Moniremit_project">
-        <activity android:name=".topUp.StatementsActivity"></activity>
+        <activity android:name=".topUp.CardActivity"></activity>
+        <activity android:name=".topUp.RetrieveDetailsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".topUp.StatementsActivity" />
         <activity android:name=".models.SendMoneyActivity" />
         <activity android:name=".models.AboutActivity" />
         <activity android:name=".models.NotificationActivity" />
         <activity
             android:name=".models.MainActivity"
-            android:theme="@style/Theme.Moniremit_project.NoActionBar"></activity>
+            android:theme="@style/Theme.Moniremit_project.NoActionBar" />
         <activity
             android:name=".topUp.TopUpActivity"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
         <activity
             android:name=".models.Verification_codeActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".models.Reset_pinActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -39,13 +47,7 @@
         <activity android:name=".models.WelcomeActivity" />
         <activity
             android:name=".models.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>

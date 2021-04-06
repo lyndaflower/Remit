@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,178 +19,120 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.moniremit_project.R;
 import com.example.moniremit_project.adapter.PrefAdapter;
 
-public class MainWelcomeActivity extends AppCompatActivity {
-    private ViewPager viewPager;
-    private MyViewPagerAdapter myViewPagerAdapter;
-    private LinearLayout dotsLayout;
-    private TextView[] dots;
-    private int[] layouts;
-    private TextView btnNext;
-//    private PrefAdapter prefManager;
+import java.util.HashMap;
+
+import static com.daimajia.slider.library.SliderTypes.BaseSliderView.*;
+
+public class MainWelcomeActivity extends AppCompatActivity implements OnSliderClickListener,
+        ViewPagerEx.OnPageChangeListener {
+
+    SliderLayout sliderLayout;
+
+    HashMap<String, String> HashMapForURL;
+
+    HashMap<String, Integer> HashMapForLocalRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        // Checking for first time launch - before calling setContentView()
-//        prefManager = new PrefAdapter(this);
-//        if (!prefManager.isFirstTimeLaunch()) {
-//            launchHomeScreen();
-//            finish();
-//        }
+        sliderLayout = (SliderLayout) findViewById(R.id.slider);
 
-        // Making notification bar transparent
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        //Call this method if you want to add images from URL .
+        AddImagesUrlOnline();
+
+        //Call this method to add images from local drawable folder .
+        //AddImageUrlFormLocalRes();
+
+        //Call this method to stop automatic sliding.
+        //sliderLayout.stopAutoCycle();
+
+        for (String name : HashMapForURL.keySet()) {
+
+            TextSliderView textSliderView = new TextSliderView(MainWelcomeActivity.this);
+
+            textSliderView
+                    .description(name)
+                    .image(HashMapForURL.get(name))
+                    .setScaleType(ScaleType.Fit)
+                    .setOnSliderClickListener(this);
+
+            textSliderView.bundle(new Bundle());
+
+            textSliderView.getBundle()
+                    .putString("extra", name);
+
+            sliderLayout.addSlider(textSliderView);
         }
+        sliderLayout.setPresetTransformer(SliderLayout.Transformer.DepthPage);
 
-        setContentView(R.layout.activity_main_welcome);
+        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
 
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
-//        btnSkip = (Button) findViewById(R.id.btn_skip);
-        btnNext = (TextView) findViewById(R.id.btn_next);
-//        register=(Button)findViewById(R.id.text_register);
+        sliderLayout.setCustomAnimation(new DescriptionAnimation());
 
+        sliderLayout.setDuration(3000);
 
-        // layouts of all welcome sliders
-        layouts = new int[]{
-                R.layout.slide1,
-                R.layout.slide2,
-                R.layout.slide3,
-                R.layout.slide4};
-
-        // adding bottom dots
-        addBottomDots(0);
-
-        // making notification bar transparent
-        changeStatusBarColor();
-
-        myViewPagerAdapter = new MyViewPagerAdapter();
-        viewPager.setAdapter(myViewPagerAdapter);
-        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
-
-
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int current = getItem(+1);
-                if (current < layouts.length) {
-                    viewPager.setCurrentItem(current);
-                } else {
-                    launchHomeScreen();
-                }
-            }
-        });
+        sliderLayout.addOnPageChangeListener(MainWelcomeActivity.this);
     }
 
-    private void addBottomDots(int currentPage) {
-        dots = new TextView[layouts.length];
+    @Override
+    protected void onStop() {
 
-        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
-        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
+        sliderLayout.stopAutoCycle();
 
-        dotsLayout.removeAllViews();
-        for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(this);
-            dots[i].setText(Html.fromHtml("&#8226;"));
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(colorsInactive[currentPage]);
-            dotsLayout.addView(dots[i]);
-        }
-
-        if (dots.length > 0)
-            dots[currentPage].setTextColor(colorsActive[currentPage]);
+        super.onStop();
     }
 
-    private int getItem(int i) {
-        return viewPager.getCurrentItem() + i;
+    @Override
+    public void onSliderClick(BaseSliderView slider) {
+
+        Toast.makeText(this, slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
     }
 
-    private void launchHomeScreen() {
-//        prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(MainWelcomeActivity.this, LoginActivity.class));
-        finish();
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     }
 
-    //  viewpager change listener
-    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+    @Override
+    public void onPageSelected(int position) {
 
-        @Override
-        public void onPageSelected(int position) {
-            addBottomDots(position);
+        Log.d("Slider Demo", "Page Changed: " + position);
 
-            // changing the next button text 'NEXT' / 'GOT IT'
-            if (position == layouts.length - 1) {
-                // last page. make button text to GOT IT
-                btnNext.setText(getString(R.string.start));
-            } else {
-                // still pages are left
-                btnNext.setText(getString(R.string.next));
-            }
-        }
-
-        @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int arg0) {
-
-        }
-    };
-
-    /**
-     * Making notification bar transparent
-     */
-    private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        }
     }
 
-    /**
-     * View pager adapter
-     */
-    public class MyViewPagerAdapter extends PagerAdapter {
-        private LayoutInflater layoutInflater;
+    @Override
+    public void onPageScrollStateChanged(int state) {
 
-        public MyViewPagerAdapter() {
-        }
+    }
 
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public void AddImagesUrlOnline() {
 
-            View view = layoutInflater.inflate(layouts[position], container, false);
-            container.addView(view);
+        HashMapForURL = new HashMap<String, String>();
 
-            return view;
-        }
+        HashMapForURL.put("CupCake", "https://s3.amazonaws.com/tc-global-prod/uploaded_images/ca/images/5030/original/Support_Young_African_Professional.jpg");
+        HashMapForURL.put("Donut", "https://cdn.24.co.za/files/Cms/General/d/8061/3066229472314b4e9b9ee2a5437f1f3f.jpg");
+        HashMapForURL.put("Eclair", "https://www.itnewsafrica.com/wp-content/uploads/2018/07/business-people.jpg");
+        HashMapForURL.put("Froyo", "https://www.africa-business.com/pics2/pics2016/african-business.jpg");
+        HashMapForURL.put("GingerBread", "http://st.depositphotos.com/1011643/3411/i/450/depositphotos_34115809-African-business-people-handshaking.jpg");
+    }
 
-        @Override
-        public int getCount() {
-            return layouts.length;
-        }
+    public void AddImageUrlFormLocalRes() {
 
-        @Override
-        public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
-        }
+        HashMapForLocalRes = new HashMap<String, Integer>();
 
+        HashMapForLocalRes.put("CupCake", R.drawable.img1);
+        HashMapForLocalRes.put("Donut", R.drawable.img2);
 
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            View view = (View) object;
-            container.removeView(view);
-        }
     }
 }
