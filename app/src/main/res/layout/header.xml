@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:background="@color/primaryColor"
     android:gravity="bottom"
-    android:paddingLeft="20dp"
-    android:background="@color/primaryColor">
+    android:orientation="vertical"
+    android:paddingLeft="20dp">
+
     <ImageView
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -17,16 +18,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lynda Flower"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:fontFamily="sans-serif" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         android:text="Rwanda,KIgali"
-        android:textSize="14sp"
-       android:paddingBottom="10dp"
         android:textColor="@color/white"
+        android:textSize="14sp"
         app:fontFamily="sans-serif" />
 </LinearLayout>

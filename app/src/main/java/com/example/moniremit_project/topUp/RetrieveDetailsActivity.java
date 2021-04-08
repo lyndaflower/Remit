@@ -20,6 +20,6 @@ public static final String TAG = RetrieveDetailsActivity.class.getSimpleName();
         mLocationTextView = (TextView) findViewById(R.id.locationTextView);
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mLocationTextView.setText("Here are all details: " + location);
+        mLocationTextView.setText(":Bank name " + location);
     }
 }

@@ -4,31 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    tools:context=".topUp.TopUpActivity">
+
+    <View
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/header_bg"/>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header_view"
-        android:layout_marginTop="0dp"
         android:background="@color/white"
         android:orientation="vertical">
-
-        <include layout="@layout/top_up_form" />
+        <include layout="@layout/top_up_form"/>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/bottom_bg" />
-    </LinearLayout>
-
-
 </RelativeLayout>
