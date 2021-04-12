@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
          finish();
      }
      if (v == logInBtn){
-         Intent logIn= new Intent(LoginActivity.this,MainActivity.class);
+         Intent logIn= new Intent(LoginActivity.this, DashboardActivity.class);
          startActivity(logIn);
          finish();
      }

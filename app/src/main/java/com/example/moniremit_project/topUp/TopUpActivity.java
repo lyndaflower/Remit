@@ -21,6 +21,7 @@ public class TopUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_up);
+
         mBankLocation = (EditText) findViewById(R.id.bank_location);
         mContinue = (Button) findViewById(R.id.btn_bank_location);
         mBankKigali = (CheckBox) findViewById(R.id.checkBox);

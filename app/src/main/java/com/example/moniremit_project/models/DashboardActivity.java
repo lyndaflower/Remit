@@ -24,7 +24,7 @@ import com.example.moniremit_project.topUp.CardActivity;
 import com.example.moniremit_project.topUp.TopUpActivity;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dashboard);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 break;
             case R.id.nav_bus:
-                Intent intent = new Intent(MainActivity.this, TopUpActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, TopUpActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_login:
@@ -119,24 +119,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onClick(View v) {
         if (v == sendMoney) {
-            Intent send_money = new Intent(MainActivity.this, SendMoneyActivity.class);
+            Intent send_money = new Intent(DashboardActivity.this, SendMoneyActivity.class);
             startActivity(send_money);
             finish();
         }
         if (v == statements) {
-            Intent statement = new Intent(MainActivity.this, TopUpActivity.class);
+            Intent statement = new Intent(DashboardActivity.this, TopUpActivity.class);
             startActivity(statement);
             finish();
         }
         if (v == quotation) {
-            Intent quotations = new Intent(MainActivity.this, TopUpActivity.class);
+            Intent quotations = new Intent(DashboardActivity.this, TopUpActivity.class);
             startActivity(quotations);
             finish();
         }
     }
 
     private void showAlertDialog() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(DashboardActivity.this);
         alertDialog.setTitle("How would you like to top up your wallet");
         String[] items = {"Credit/Debit Card", "Bank(instant EFT)", "Agent"};
         boolean[] checkedItems = {false, false, false, false, false, false};
@@ -146,22 +146,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 switch (which) {
                     case 0:
                         if (isChecked) {
-                            Toast.makeText(MainActivity.this, "Clicked on Credit/Debit Card", Toast.LENGTH_LONG).show();
-                            Intent card = new Intent(MainActivity.this, CardActivity.class);
+                            Toast.makeText(DashboardActivity.this, "Clicked on Credit/Debit Card", Toast.LENGTH_LONG).show();
+                            Intent card = new Intent(DashboardActivity.this, CardActivity.class);
                             startActivity(card);
                             finish();
                         }
                         break;
                     case 1:
                         if (isChecked)
-                            Toast.makeText(MainActivity.this, "Clicked on Bank(instant EFT)", Toast.LENGTH_LONG).show();
-                        Intent card = new Intent(MainActivity.this, TopUpActivity.class);
+                            Toast.makeText(DashboardActivity.this, "Clicked on Bank(instant EFT)", Toast.LENGTH_LONG).show();
+                        Intent card = new Intent(DashboardActivity.this, TopUpActivity.class);
                         startActivity(card);
                         finish();
                         break;
                     case 2:
                         if (isChecked)
-                            Toast.makeText(MainActivity.this, "Clicked on Agent", Toast.LENGTH_LONG).show();
+                            Toast.makeText(DashboardActivity.this, "Clicked on Agent", Toast.LENGTH_LONG).show();
                         break;
                 }
             }

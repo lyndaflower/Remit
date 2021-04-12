@@ -1,6 +1,7 @@
 package com.example.moniremit_project.models;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -9,6 +10,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,112 +30,109 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.moniremit_project.R;
+import com.example.moniremit_project.adapter.CustomViewPagerAdapter;
 import com.example.moniremit_project.adapter.PrefAdapter;
 
 import java.util.HashMap;
 
 import static com.daimajia.slider.library.SliderTypes.BaseSliderView.*;
 
-public class MainWelcomeActivity extends AppCompatActivity implements OnSliderClickListener,
-        ViewPagerEx.OnPageChangeListener {
+public class MainWelcomeActivity extends AppCompatActivity {
+    private static final long SLIDER_TIMER = 2000; // change slider interval
+    private int currentPage = 0; // this will tell us the current page available on the view pager
+// please see ViewPager Listener on the onPageSelected method to see how we are updating
+// currentPage variable
 
-    SliderLayout sliderLayout;
+    private boolean isCountDownTimerActive = false; // let the timer start if and only if it has completed previous task
 
-    HashMap<String, String> HashMapForURL;
+    private Handler handler;
+    private ViewPager viewPager;
 
-    HashMap<String, Integer> HashMapForLocalRes;
+    private final Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+
+            if (!isCountDownTimerActive) {
+                automateSlider();
+            }
+
+            handler.postDelayed(runnable, 1000);
+// our runnable should keep running for every 1000 milliseconds (1 seconds)
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_welcome);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        sliderLayout = (SliderLayout) findViewById(R.id.slider);
+        handler = new Handler();
 
-        //Call this method if you want to add images from URL .
-        AddImagesUrlOnline();
+        handler.postDelayed(runnable, 1000);
+        runnable.run();
 
-        //Call this method to add images from local drawable folder .
-        //AddImageUrlFormLocalRes();
+        viewPager = findViewById(R.id.view_pager_slider);
 
-        //Call this method to stop automatic sliding.
-        //sliderLayout.stopAutoCycle();
+        CustomViewPagerAdapter viewPagerAdapter = new CustomViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
 
-        for (String name : HashMapForURL.keySet()) {
+// now it’s time to think about our sliders
 
-            TextSliderView textSliderView = new TextSliderView(MainWelcomeActivity.this);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-            textSliderView
-                    .description(name)
-                    .image(HashMapForURL.get(name))
-                    .setScaleType(ScaleType.Fit)
-                    .setOnSliderClickListener(this);
+            }
 
-            textSliderView.bundle(new Bundle());
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    currentPage = 0;
+                } else if (position == 1) {
+                    currentPage = 1;
+                } else {
+                    currentPage = 2;
+                }
+            }
 
-            textSliderView.getBundle()
-                    .putString("extra", name);
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
-            sliderLayout.addSlider(textSliderView);
-        }
-        sliderLayout.setPresetTransformer(SliderLayout.Transformer.DepthPage);
+            }
+        });
 
-        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+    }
 
-        sliderLayout.setCustomAnimation(new DescriptionAnimation());
+    private void automateSlider() {
+        isCountDownTimerActive = true;
+        new CountDownTimer(SLIDER_TIMER, 1000) {
 
-        sliderLayout.setDuration(3000);
+            @Override
+            public void onTick(long millisUntilFinished) {
 
-        sliderLayout.addOnPageChangeListener(MainWelcomeActivity.this);
+            }
+
+            @Override
+            public void onFinish() {
+
+                int nextSlider = currentPage + 1;
+
+                if (nextSlider == 3) {
+                    nextSlider = 0; // if it’s last Image, let it go to the first image
+                }
+
+                viewPager.setCurrentItem(nextSlider);
+                isCountDownTimerActive = false;
+            }
+        }.start();
     }
 
     @Override
     protected void onStop() {
-
-        sliderLayout.stopAutoCycle();
-
         super.onStop();
-    }
-
-    @Override
-    public void onSliderClick(BaseSliderView slider) {
-
-        Toast.makeText(this, slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-        Log.d("Slider Demo", "Page Changed: " + position);
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-
-    public void AddImagesUrlOnline() {
-
-        HashMapForURL = new HashMap<String, String>();
-
-        HashMapForURL.put("CupCake", "https://s3.amazonaws.com/tc-global-prod/uploaded_images/ca/images/5030/original/Support_Young_African_Professional.jpg");
-        HashMapForURL.put("Donut", "https://cdn.24.co.za/files/Cms/General/d/8061/3066229472314b4e9b9ee2a5437f1f3f.jpg");
-        HashMapForURL.put("Eclair", "https://www.itnewsafrica.com/wp-content/uploads/2018/07/business-people.jpg");
-        HashMapForURL.put("Froyo", "https://www.africa-business.com/pics2/pics2016/african-business.jpg");
-        HashMapForURL.put("GingerBread", "http://st.depositphotos.com/1011643/3411/i/450/depositphotos_34115809-African-business-people-handshaking.jpg");
-    }
-
-    public void AddImageUrlFormLocalRes() {
-
-        HashMapForLocalRes = new HashMap<String, Integer>();
-
-        HashMapForLocalRes.put("CupCake", R.drawable.img1);
-        HashMapForLocalRes.put("Donut", R.drawable.img2);
-
+// Kill this background task once the activity has been killed
+        handler.removeCallbacks(runnable);
     }
 }
