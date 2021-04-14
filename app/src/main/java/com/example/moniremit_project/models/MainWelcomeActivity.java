@@ -1,47 +1,26 @@
 package com.example.moniremit_project.models;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.text.Html;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
 import com.example.moniremit_project.R;
 import com.example.moniremit_project.adapter.CustomViewPagerAdapter;
-import com.example.moniremit_project.adapter.PrefAdapter;
 
-import java.util.HashMap;
-
-import static com.daimajia.slider.library.SliderTypes.BaseSliderView.*;
-
-public class MainWelcomeActivity extends AppCompatActivity {
+public class MainWelcomeActivity extends AppCompatActivity implements View.OnClickListener {
     private static final long SLIDER_TIMER = 2000; // change slider interval
     private int currentPage = 0; // this will tell us the current page available on the view pager
-// please see ViewPager Listener on the onPageSelected method to see how we are updating
+    // please see ViewPager Listener on the onPageSelected method to see how we are updating
 // currentPage variable
+    Button mGetStarted;
+    Button mRegister;
 
     private boolean isCountDownTimerActive = false; // let the timer start if and only if it has completed previous task
 
@@ -69,6 +48,12 @@ public class MainWelcomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         handler = new Handler();
+
+        mGetStarted = (Button) findViewById(R.id.btn_start);
+        mRegister = (Button) findViewById(R.id.register_btn);
+
+        mGetStarted.setOnClickListener(this);
+        mRegister.setOnClickListener(this);
 
         handler.postDelayed(runnable, 1000);
         runnable.run();
@@ -105,6 +90,7 @@ public class MainWelcomeActivity extends AppCompatActivity {
 
     }
 
+
     private void automateSlider() {
         isCountDownTimerActive = true;
         new CountDownTimer(SLIDER_TIMER, 1000) {
@@ -135,4 +121,17 @@ public class MainWelcomeActivity extends AppCompatActivity {
 // Kill this background task once the activity has been killed
         handler.removeCallbacks(runnable);
     }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mGetStarted) {
+            Intent start = new Intent(MainWelcomeActivity.this, LoginActivity.class);
+            startActivity(start);
+        }
+        if ( v == mRegister){
+            Intent register = new Intent(MainWelcomeActivity.this,RegistrationActivity.class);
+            startActivity(register);
+        }
+    }
 }
+

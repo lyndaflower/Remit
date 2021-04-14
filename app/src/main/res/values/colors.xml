@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="accentColor">#E2535353</color>
+    <color name="redColor">#b30000</color>
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen1">#446600</color>
