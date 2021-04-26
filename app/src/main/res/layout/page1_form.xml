@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:padding="9dp"
-        android:hint="Name"
+        android:hint="@string/first_name"
         android:background="@drawable/edit_text_background"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:textColorHint="#E2535353"
@@ -29,19 +29,64 @@
         android:id="@+id/editEmail"
         android:layout_width="255dp"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
+        android:hint="@string/last_name"
         android:padding="9dp"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="6dp"
         android:textColor="#E2535353"
         android:textColorHint="#E2535353"
         android:layout_margin="10dp"
         android:background="@drawable/edit_text_background"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editPass"
+        app:layout_constraintBottom_toTopOf="@+id/text_gender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editName" />
+
+    <TextView
+        android:id="@+id/text_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select your gender"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/accentColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmail"
+        android:gravity="center_horizontal" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <Spinner android:id="@+id/spinnerid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/editPass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        />
 
     <EditText
         android:id="@+id/editPass"
@@ -58,7 +103,7 @@
         app:layout_constraintBottom_toTopOf="@+id/upload_phto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerid" />
     <TextView
         android:id="@+id/upload_phto"
         android:layout_width="match_parent"
@@ -85,11 +130,22 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="13dp"
         android:text="Create a New Acount"
-        android:textColor="@color/primaryColor"
+        android:textColor="@color/redColor"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/page_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/page1"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

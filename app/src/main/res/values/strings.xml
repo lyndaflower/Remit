@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Moniremit</string>
     <!--    splash screen welcome page-->
     <string name="next">Next</string>
@@ -7,12 +7,15 @@
     <string name="offers">Offers</string>
     <string name="join">Join us</string>
     <string name="discover_text">Move money over and time</string>
-    <string name="discover_desc">MoniRemit aims to use advanced technology to bring a solution </string>
+    <string name="discover_desc">MoniRemit aims to use advanced technology to bring a solution to financial inclusion problems </string>
     <string name="transfer_text">Transformation power for financial inclusion</string>
-    <string name="transfer_desc">Harnessing financial inclusion through digital innovation.</string>
+    <string name="transfer_desc">Harnessing financial inclusion through digital innovation. Adults who are excluded from the formal financial system will be able to manage their financial lives</string>
     <string name="offers_text">Stop overpaying when sending money.</string>
-    <string name="offer_desc">Traditional approach doesnt work well to provide a sustainable financial inclusion.</string>
-    <string name="join_text">Join now to organize all your remittance</string>
+    <string name="joins">Fighting to reduce high costs of remittance</string>
+    <string name="offers_texts">Availability and equal access to financial services.</string>
+    <string name="offer_desc">Traditional approach does not work well to provide a sustainable financial inclusion.</string>
+    <string name="join_text">Moniremit speed sound transfer </string>
+    <string name="join_desc">join now to organize all your remittance</string>
     <string name="start">Get Started</string>
     <string name="register">Register</string>
 
@@ -76,5 +79,6 @@
     <string name="checkbox_access_bank">Access bank</string>
     <string name="checkbox_kcb">Kenya Commercial Bank(KCB)</string>
     <string name="continue_btn">Continue</string>
+
 
 </resources>

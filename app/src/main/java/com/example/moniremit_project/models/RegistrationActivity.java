@@ -1,26 +1,19 @@
 package com.example.moniremit_project.models;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
-import android.os.Bundle;
-import android.text.Html;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.moniremit_project.R;
 
@@ -39,7 +32,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         next = (Button) findViewById(R.id.btn_next);
-        layouts = new int[]{R.layout.page1, R.layout.page2, R.layout.page3,R.layout.page4};
+        layouts = new int[]
+                {R.layout.page1, R.layout.page2, R.layout.page3, R.layout.page4};
         viewPagerAdapter = new ViewPagerAdapter();
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(viewListener);
@@ -49,7 +43,7 @@ public class RegistrationActivity extends AppCompatActivity {
             if (current < layouts.length) {
                 viewPager.setCurrentItem(current);
             } else {
-                AlertDialog.Builder dialog=new AlertDialog.Builder(this);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
                 dialog.setMessage("Your request has been submitted successfully,You will receive an SMS confirming your login PIN shortly.");
                 dialog.setTitle("Thank you!");
                 dialog.setPositiveButton("OK",

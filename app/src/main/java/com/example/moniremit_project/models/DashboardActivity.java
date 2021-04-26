@@ -1,14 +1,5 @@
 package com.example.moniremit_project.models;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,9 +10,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.example.moniremit_project.R;
-import com.example.moniremit_project.topUp.CardActivity;
+import com.example.moniremit_project.sendMoney.SendMoneyActivity;
 import com.example.moniremit_project.topUp.TopUpActivity;
+import com.example.moniremit_project.topUp.TopUpCardActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -147,7 +148,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                     case 0:
                         if (isChecked) {
                             Toast.makeText(DashboardActivity.this, "Clicked on Credit/Debit Card", Toast.LENGTH_LONG).show();
-                            Intent card = new Intent(DashboardActivity.this, CardActivity.class);
+                            Intent card = new Intent(DashboardActivity.this, TopUpCardActivity.class);
                             startActivity(card);
                             finish();
                         }

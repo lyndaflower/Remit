@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.moniremit_project.R;
 
-public class CardActivity extends AppCompatActivity {
+public class TopUpCardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card);
+        setContentView(R.layout.activity_top_up_card);
     }
 }

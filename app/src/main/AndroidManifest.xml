@@ -11,18 +11,14 @@
         android:roundIcon="@mipmap/moni"
         android:supportsRtl="true"
         android:theme="@style/Theme.Moniremit_project">
-        <activity android:name=".topUp.TopUpActivity">
-
+        <activity android:name=".topUp.TopUpCardActivity"></activity>
+        <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".topUp.CardActivity"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
-
-        </activity>
-        <activity android:name=".topUp.RetrieveDetailsActivity"></activity>
-        <activity android:name=".topUp.StatementsActivity">
-
-        </activity>
-        <activity android:name=".models.SendMoneyActivity" />
+        <activity android:name=".sendMoney.TransferMethodActivity" />
+        <activity android:name=".topUp.TopUpActivity" />
+        <activity android:name=".topUp.RetrieveDetailsActivity" />
+        <activity android:name=".topUp.StatementsActivity" />
+        <activity android:name=".sendMoney.SendMoneyActivity" />
         <activity android:name=".models.AboutActivity" />
         <activity android:name=".models.NotificationActivity" />
         <activity
@@ -42,17 +38,15 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".models.MainWelcomeActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".models.SplashActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".models.WelcomeActivity" />
-        <activity
-            android:name=".models.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
         </activity>
     </application>
 

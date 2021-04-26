@@ -8,15 +8,7 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-<!--    <LinearLayout-->
-<!--        android:id="@+id/layoutDots"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginBottom="22dp"-->
-<!--        android:gravity="center"-->
-<!--        android:orientation="horizontal">-->
-<!--    </LinearLayout>-->
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -32,6 +24,7 @@
         android:background="@null"
         android:text="NEXT"
         android:textColor="@android:color/white" />
+
 <!--    <Button-->
 <!--        android:id="@+id/btn_skip"-->
 <!--        android:layout_width="wrap_content"-->
@@ -41,4 +34,5 @@
 <!--        android:background="@null"-->
 <!--        android:text="SKIP"-->
 <!--        android:textColor="@android:color/white" />-->
+
 </RelativeLayout>

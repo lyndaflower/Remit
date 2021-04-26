@@ -1,137 +1,170 @@
 package com.example.moniremit_project.models;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
+import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.moniremit_project.R;
-import com.example.moniremit_project.adapter.CustomViewPagerAdapter;
 
-public class MainWelcomeActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final long SLIDER_TIMER = 2000; // change slider interval
-    private int currentPage = 0; // this will tell us the current page available on the view pager
-    // please see ViewPager Listener on the onPageSelected method to see how we are updating
-// currentPage variable
-    Button mGetStarted;
-    Button mRegister;
+public class MainWelcomeActivity extends AppCompatActivity {
 
-    private boolean isCountDownTimerActive = false; // let the timer start if and only if it has completed previous task
-
-    private Handler handler;
     private ViewPager viewPager;
-
-    private final Runnable runnable = new Runnable() {
+    private MyViewPagerAdapter myViewPagerAdapter;
+    private LinearLayout dotsLayout;
+    private TextView[] dots;
+    private int[] layouts;
+    // viewpager change listener
+    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
-        public void run() {
-
-            if (!isCountDownTimerActive) {
-                automateSlider();
+        public void onPageSelected(int position) {
+            addBottomDots(position);
+// changing the next button text 'NEXT' / 'GOT IT'
+            if (position == layouts.length - 1) {
+// last page. make button text to GOT IT
+                btnNext.setText(getString(R.string.start));
+            } else {
+// still pages are left
+                btnNext.setText(getString(R.string.next));
             }
+        }
 
-            handler.postDelayed(runnable, 1000);
-// our runnable should keep running for every 1000 milliseconds (1 seconds)
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
         }
     };
+    private Button btnSkip, btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Making notification bar transparent
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
+
         setContentView(R.layout.activity_main_welcome);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        handler = new Handler();
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
+//        btnSkip = (Button) findViewById(R.id.btn_skip);
+        btnNext = (Button) findViewById(R.id.btn_next);
 
-        mGetStarted = (Button) findViewById(R.id.btn_start);
-        mRegister = (Button) findViewById(R.id.register_btn);
 
-        mGetStarted.setOnClickListener(this);
-        mRegister.setOnClickListener(this);
+        // layouts of all welcome sliders
+        layouts = new int[]{
+                R.layout.slide1,
+                R.layout.slide2,
+                R.layout.slide3,
+                R.layout.slide4};
 
-        handler.postDelayed(runnable, 1000);
-        runnable.run();
-
-        viewPager = findViewById(R.id.view_pager_slider);
-
-        CustomViewPagerAdapter viewPagerAdapter = new CustomViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(viewPagerAdapter);
-
-// now it’s time to think about our sliders
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        // adding bottom dots
+        addBottomDots(0);
+// making notification bar transparent
+        changeStatusBarColor();
+        myViewPagerAdapter = new MyViewPagerAdapter();
+        viewPager.setAdapter(myViewPagerAdapter);
+        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position == 0) {
-                    currentPage = 0;
-                } else if (position == 1) {
-                    currentPage = 1;
+            public void onClick(View v) {
+                int current = getItem(+1);
+                if (current < layouts.length) {
+                    viewPager.setCurrentItem(current);
                 } else {
-                    currentPage = 2;
+                    launchHomeScreen();
                 }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
             }
         });
-
     }
 
-
-    private void automateSlider() {
-        isCountDownTimerActive = true;
-        new CountDownTimer(SLIDER_TIMER, 1000) {
-
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            @Override
-            public void onFinish() {
-
-                int nextSlider = currentPage + 1;
-
-                if (nextSlider == 3) {
-                    nextSlider = 0; // if it’s last Image, let it go to the first image
-                }
-
-                viewPager.setCurrentItem(nextSlider);
-                isCountDownTimerActive = false;
-            }
-        }.start();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-// Kill this background task once the activity has been killed
-        handler.removeCallbacks(runnable);
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v == mGetStarted) {
-            Intent start = new Intent(MainWelcomeActivity.this, LoginActivity.class);
-            startActivity(start);
+    private void addBottomDots(int currentPage) {
+        dots = new TextView[layouts.length];
+        int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
+        int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
+        dotsLayout.removeAllViews();
+        for (int i = 0; i < dots.length; i++) {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#8226;"));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(colorsInactive[currentPage]);
+            dotsLayout.addView(dots[i]);
         }
-        if ( v == mRegister){
-            Intent register = new Intent(MainWelcomeActivity.this,RegistrationActivity.class);
-            startActivity(register);
+        if (dots.length > 0)
+            dots[currentPage].setTextColor(colorsActive[currentPage]);
+    }
+
+    private int getItem(int i) {
+        return viewPager.getCurrentItem() + i;
+    }
+
+    private void launchHomeScreen() {
+// prefManager.setFirstTimeLaunch(false);
+        startActivity(new Intent(MainWelcomeActivity.this, LoginActivity.class));
+        finish();
+    }
+
+    /**
+     * Making notification bar transparent
+     */
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
+    }
+
+    /**
+     * View pager adapter
+     */
+    public class MyViewPagerAdapter extends PagerAdapter {
+        private LayoutInflater layoutInflater;
+
+        public MyViewPagerAdapter() {
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = layoutInflater.inflate(layouts[position], container, false);
+            container.addView(view);
+            return view;
+        }
+
+        @Override
+        public int getCount() {
+            return layouts.length;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object obj) {
+            return view == obj;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            View view = (View) object;
+            container.removeView(view);
         }
     }
 }
-
